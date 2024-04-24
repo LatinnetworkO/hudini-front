@@ -6,8 +6,8 @@ import CodeGen from './components/codGen.tsx'
 
 export default function App() {
   return ( 
-    <div>
-          <div className="flex flex-col md:flex-row">
+       
+    <div className="flex flex-col md:flex-row">
       {/* Para pantallas pequeñas */}
       <div className="md:hidden w-full ">
   <img src={Mdt7} alt="Imagen pequeña" className="w-full" />
@@ -184,8 +184,5 @@ export default function App() {
         </div>
       </div>
     </div>
-    <CodeGen/>
-    </div>   
-
   )
 }

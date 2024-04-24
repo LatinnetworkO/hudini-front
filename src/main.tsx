@@ -7,6 +7,6 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />    
+    <CodGen />    
   </React.StrictMode>,
 )
