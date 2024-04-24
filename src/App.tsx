@@ -1,133 +1,191 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-import hotel from './assets/hotel.jpg'
-import logo_h from './assets/logo_h.png'
-export default function App() {
-  return (
-    <>
-      {/*
-        This example requires updating your template:
 
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-    <div className="relative bg-cover bg-center bg-no-repeat min-h-screen px-6 py-3 lg:px-8" style={{backgroundImage: `url(${hotel})`}}>
-      {/* Superposición negra semitransparente */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 "></div>
+import Mdt6 from './assets/Mdt6.png'
+import Mdt7 from './assets/Mdt7.png'
+import proximo from './assets/chevron-derecho.png'
+import CodeGen from './components/codGen.tsx'
+
+export default function App() {
+  return ( 
+    <div>
+          <div className="flex flex-col md:flex-row">
+      {/* Para pantallas pequeñas */}
+      <div className="md:hidden w-full ">
+  <img src={Mdt7} alt="Imagen pequeña" className="w-full" />
+
+  <div className="bg-zinc-700 p-4 w-full flex justify-center  ">
+    <div className="bg-zinc-700 p-6 ">
+      <div className="mb-4 text-red-700 text-2xl font-bold">Registrarse</div>
+
+      <div className="h-1 w-full flex mb-20">
+        <div className="w-1/2 bg-red-700"></div>
+        <div className="w-1/2 bg-gray-400"></div>
+      </div>
       
-      <div className="flex justify-center items-center h-full px-6 py-3 lg:px-8 ">
-        <div className="bg-black bg-opacity-90 text-white w-96 p-8 rounded-lg shadow-2xl  z-10"> {/* Cambio de color a rojo y ajuste de opacidad */}
-          <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-1 lg:px-8 ">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto h-20 w-auto"
-            src={logo_h}
-            alt="Your Company"
-          />
-          <h2 className="mt-1 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-            Registro
-          </h2>
+      <form className="space-y-10" action="#" method="POST">
+        <div className="w-full border border-gray-400 p-1 px-4 flex items-center border-2">
+          <label htmlFor="text" className="text-sm font-medium leading-6 text-white flex items-center">Nombre</label>
+          <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+          <div className="ml-2">
+            <input 
+              type="text" 
+              id="nombre"
+              name="nombre"
+              autoComplete="nombre"
+              required
+              className="w-full rounded-md border-0 py-1.4 text-white shadow-sm ring-int placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+            />
+          </div>
+        </div>
+        
+        <div className="w-full border border-gray-400 p-1 flex items-center border-2 px-5 ">
+          <label htmlFor="email" className="text-sm font-medium leading-6 text-white flex items-center">Email</label>
+          <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-9" />
+          <div className="ml-2">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              className="w-full rounded-md border-0 py-1.4 text-white shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+            />
+          </div>
         </div>
 
-        <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label htmlFor="text" className="block text-sm font-medium leading-6 text-white">Nombre</label>
-              <div className="mt-1">
-                <input 
-                type="text" 
-                id="nombre"
-                name="nombre"
-                autoComplete="nombre"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-300"
-                />
-              </div>
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
-                Correo electrónico
-              </label>
-              <div className="mt-1">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-300"
-                />
-              </div>
-            </div>
+        <div className="w-full border border-gray-400 p-1 flex items-center border-2">
+          <label htmlFor="telefono" className="text-sm font-medium leading-6 text-white px-3 flex items-center">Telefono</label>
+          <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
+          <div className="ml-2">
+            <input
+              id="telefono"
+              name="telefono"
+              type="number"
+              required
+              className="w-full rounded-md border-0 py-1.4 text-white shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+            />
+          </div>
+        </div>
+        
+        <div className="w-full border border-gray-400 p-1 flex items-center border-2">
+          <label htmlFor="direccion" className="text-sm font-medium leading-6 px-3 text-white flex items-center">Dirección</label>
+          <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-0" />
+          <div className="ml-2">
+            <input
+              id="direccion"
+              name="direccion"
+              type="text"
+              required
+              className="w-full rounded-md border-0 py-1.4 text-gray-900 shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+            />
+          </div>
+        </div>
 
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="telefono" className="block text-sm font-medium leading-6 text-white ">
-                  Telefono
-                </label>
-              </div>
-              <div className="mt-1">
-                <input
-                  id="telefono"
-                  name="telefono"
-                  type="number"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-gray-300"
-                />
-              </div>
+        <div>
+          <button
+            type="submit"
+            onClick={CodeGen}
+            className="flex justify-center px-2 py-2 text-sm font-semibold leading-6 shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-red-700 text-white object-left-top w-full"
+            style={{ clipPath: 'polygon(0 0, 90% 0, 100% 50%, 100% 50%, 90% 100%, 0 100%)' }}
+          >
+            Generar código
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+      {/* Para pantallas grandes */}
+      <div className="hidden mx-auto md:flex flex-row w-full">
+        <img src={Mdt6} alt="Imagen grande" className="object-fill max-h-screen  w-1/3" />
+        
+        <div className="bg-zinc-700 p-40 w-2/3 flex justify-center max-h-screen ">
+          <div className="  items-center">
+          <div className=" mb-4 text-red-700 text-2xl font-bold">Registrarse</div> {/* Letrero "Registrarse" */}
+          
+          <div className="h-1 w-full flex mb-20">
+            <div className="w-1/2 bg-red-700"></div>
+            <div className="w-1/2 bg-gray-400"></div>
+          </div>
+          <form className="space-y-10" action="#" method="POST">
+          <div className="w-96  border border-gray-400 p-1 flex items-center border-2 "> {/* Cambio en la clase de estilo aquí */}
+            <label htmlFor="text"  className="px-7 text-sm font-medium leading-6 text-white flex items-center">Nombre</label>
+            <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+
+             {/* Cambio en el estilo del span aquí */}
+            <div className="ml-2">
+              <input 
+              type="text" 
+              id="nombre"
+              name="nombre"
+              autoComplete="nombre"
+              required
+              className="w-fullrounded-md border-0 px-6 py-1.4 text-white shadow-sm  ring-int  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700 border-gray-400 "
+              />
             </div>
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="direccion" className="block text-sm font-medium leading-6 text-white">
-                  Dirección
-                </label>
-              </div>
-              <div className="mt-1">
-                <input
-                  id="direccion"
-                  name="direccion"
-                  type="text"
-                  required
-                  className="bg-gray-300 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
-                />
-              </div>
+          </div>
+           <div className=" w-full border border-gray-400   p-1 flex items-center border-2"> {/* Cambio en la clase de estilo aquí */}
+            <label htmlFor="email" className="text-sm font-medium leading-6 px-6 text-white flex items-center">
+            Email</label>
+            <img src={proximo} alt="Icono de correo electrónico"  className="h-5 w-5 ml-11" />
+            <div className="ml-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className=" w-full rounded-md border-0 py-1.4 px-7 text-white shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+              />
             </div>
+          </div>
+
+          <div className=" w-full border border-gray-400 p-1 flex items-center border-2"> {/* Cambio en la clase de estilo aquí */}
+            <label htmlFor="telefono" className="px-7 text-sm font-medium leading-6 text-white flex items-center">Telefono</label>
+            <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-4" />
+
+            <div className="ml-2">
+              <input
+                id="telefono"
+                name="telefono"
+                type="number"
+                required
+                className="w-full rounded-md border-0 py-1.4 px-7 text-white shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-zinc-700"
+              />
+            </div>
+          </div>
+          <div className="w-full border border-gray-400  p-1 flex items-center border-2"> {/* Cambio en la clase de estilo aquí */}
+            <label htmlFor="direccion" className="text-sm px-7 font-medium leading-6 text-white flex items-center">Dirección</label>
+            <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
+            <div className="ml-2">
+              
+              <input
+                id="direccion"
+                name="direccion"
+                type="text"
+                required
+                className="w-full rounded-md border-0 px-7 py-1.4 text-gray-900 shadow-sm ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset lg:focus:ring-gray-600 lg:text-sm lg:leading-6 bg-zinc-700  max-h-screen"
+              />
+            </div>
+          </div>
+
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-red-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
+                className="flex justify-center  px-2 py-2 text-sm font-semibold leading-6 shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-red-700 text-white object-left-top w-full "
+                style={{ clipPath: 'polygon(0 0, 90% 0, 100% 50%, 100% 50%, 90% 100%, 0 100%)' }}
+               >
                 Generar código
               </button>
             </div>
           </form>
-          
-          <p className="mt-5 text-center text text-gray-500">
-            Código generedo:{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              1Xf85V
-            </a>
-          </p>
-        </div>
-      </div>
+          </div>
         </div>
       </div>
     </div>
-    </>
+    <CodeGen/>
+    </div>   
+
   )
 }
