@@ -14,7 +14,7 @@ const codGen = () => {
         />
         <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-20 text-xl sm:text-6xl text-center z-10 text-shadow">Su código es: 12345xs</span>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
-          <a href="https://www.google.com" rel="noopener noreferrer" className="inline-block">
+          <a href={import.meta.env.VITE_REDIRECT_URL} rel="noopener noreferrer" className="inline-block">
             <motion.button 
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}  

@@ -7,7 +7,6 @@ import proximo from './assets/chevron-derecho.png'
 import CodeGen from './components/codGen.tsx'
 
 export default function App() {
-
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -25,17 +24,14 @@ export default function App() {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-
     e.preventDefault();
-    axios.post('http://localhost:3002/form/', formData)
-      .then(response => {
-        console.log('Respuesta del servidor:', response.data);
+    axios.post(import.meta.env.VITE_FORM_URL, formData)
+      .then(() => {
         setShowFirstDiv(false);
         setShowSecondDiv(true);
       })
       .catch(error => {
-        console.error('Error al enviar la solicitud:', error);
-        // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario.
+        console.error('Server error', error);
       });
   };
   return ( 
