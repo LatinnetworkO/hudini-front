@@ -111,7 +111,7 @@ export default function App() {
       </div>
       
       <div className="w-full border border-gray-400 p-1 flex items-center border-2">
-        <label htmlFor="direccion" className="text-sm font-medium leading-6 px-3 text-white flex items-center">Dirección</label>
+        <label htmlFor="direccion" className="text-sm font-medium leading-6 px-3 text-white flex items-center">Ciudad</label>
         <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-0" />
         <div className="ml-2">
           <motion.input

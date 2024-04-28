@@ -12,13 +12,13 @@ const codGen = () => {
           src={Mtd5}
           alt="Imagen"
         />
-        <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-20 text-xl sm:text-6xl text-center z-10 text-shadow">Su código es: 12345xs</span>
+        <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-20 text-xl sm:text-6xl text-center z-10 text-shadow font-bold">TU CÓDIGO ES: 12345XS</span>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
           <a href={import.meta.env.VITE_REDIRECT_URL} rel="noopener noreferrer" className="inline-block">
             <motion.button 
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}  
-            className="bg-red-500 text-white px-30 py-2 rounded-md mx-auto" style={{ width: '200px' }}>Gracias por su registro</motion.button>
+            className="bg-red-500 text-white px-30 py-2 rounded-md mx-auto" style={{ width: '200px' }}>Reserva tu hotel</motion.button>
           </a>
         </div>
       </div>
