@@ -45,11 +45,11 @@ export default function App() {
       <div>
       <div className="flex flex-col lg:flex-row">
     {/* Para pantallas pequeñas */}
-    <div className="lg:hidden w-full ">
-<img src={Mdt7} alt="Imagen pequeña" className="w-full" />
+    <div className="lg:hidden flex flex-col h-screen">
+<img src={Mdt7} alt="Imagen pequeña" className="w-full object-cover max-h-screen" />
 
-<div className="bg-zinc-950 p-4 w-full flex justify-center  ">
-  <div className="p-6 lg:w-3/4 rounded-lg shadow-gray-200 shadow-lg  bg-zinc-700">
+<div className="bg-zinc-950 p-4 flex justify-center flex-grow  ">
+  <div className="p-6 lg:w-3/4 rounded-lg shadow-gray-200 shadow-lg bg-zinc-700 mb-20">
     <div className="mb-4 text-red-700 text-2xl font-bold">Registrarse</div>
 
     <div className="h-1 w-full flex mb-20">
@@ -151,8 +151,8 @@ export default function App() {
 
 
 {/* Para pantallas grandes */}
-<div className="hidden mx-auto lg:flex flex-row w-full">
-<img src={Mdt6} alt="Imagen grande" className="object-fill max-h-screen w-1/3" />
+<div className="hidden mx-auto lg:flex flex-row h-auto w-full min-h-screen">
+<img src={Mdt6} alt="Imagen grande" className="object-cover max-h-screen w-1/3" />
 
 <div className="bg-zinc-950  p-8 lg:p-20 w-2/3 flex justify-center max-h-screen ">
   <div className="shadow-gray-200 bg-zinc-700 rounded-lg  shadow-lg  p-8 lg:p-12 w-full max-w-md">
