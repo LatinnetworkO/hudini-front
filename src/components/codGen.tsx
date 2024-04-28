@@ -15,14 +15,16 @@ const codGen = () => {
         <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-20 text-xl sm:text-6xl text-center z-10 text-shadow">Su código es: 12345xs</span>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
           <a href="https://www.google.com" rel="noopener noreferrer" className="inline-block">
-            <motion.button className="bg-red-500 text-white px-20 py-2 rounded-md mx-auto">Gracias por su registro</motion.button>
+            <motion.button 
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}  
+            className="bg-red-500 text-white px-30 py-2 rounded-md mx-auto" style={{ width: '200px' }}>Gracias por su registro</motion.button>
           </a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
   )
