@@ -9,6 +9,7 @@ import CodeGen from './components/codGen.tsx'
 export default function App() {
   const [formData, setFormData] = useState({
     nombre: '',
+    cedula: '',
     email: '',
     telefono: '',
     direccion: ''
@@ -25,14 +26,26 @@ export default function App() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post(import.meta.env.VITE_FORM_URL, formData)
-      .then(() => {
-        setShowFirstDiv(false);
-        setShowSecondDiv(true);
-      })
-      .catch(error => {
-        console.error('Server error', error);
-      });
+  
+    const config = {
+      headers: {
+        Authorization: import.meta.env.VITE_TOKEN
+      }
+    };
+    try {
+    axios.post(import.meta.env.VITE_FORM_URL, formData, config)
+    // axios.post('http://localhost:3002/form/', formData,config)
+    .then(() => {
+      setShowFirstDiv(false);
+      setShowSecondDiv(true);
+    })
+    .catch(error => {
+      console.error('Server error', error);
+    });
+    } catch (error) {
+      
+    }
+
   };
   return ( 
     <div>
@@ -73,6 +86,26 @@ export default function App() {
         </div>
       </div>
       
+      {/* //cambio cedula  */}
+      <div className="w-full border border-gray-400 p-1 px-4 flex items-center border-2">
+        <label htmlFor="text" className="text-sm font-medium leading-6 text-white flex items-center">Cédula</label>
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <div className="ml-2">
+          <motion.input 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}            
+            type="text" 
+            id="cedula"
+            name="cedula"
+            autoComplete="cedula"
+            required
+            value={formData.cedula}
+            onChange={handleChange}
+            className="w-full border-0 py-1.4 text-white shadow-sm ring-int placeholder:text-gray-400   sm:text-sm sm:leading-6 bg-zinc-700"
+          />
+        </div>
+      </div>
+
       <div className="w-full border border-gray-400 p-1 flex items-center border-2 px-5 ">
         <label htmlFor="email" className="text-sm font-medium leading-6 text-white flex items-center">Email</label>
         <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-9" />
@@ -150,9 +183,9 @@ export default function App() {
 <div className="hidden mx-auto lg:flex flex-row h-auto w-full min-h-screen">
 <img src={Mdt6} alt="Imagen grande" className="object-cover max-h-screen w-1/3" />
 
-<div className="bg-zinc-950  p-8 lg:p-20 w-2/3 flex justify-center max-h-screen ">
-  <div className="shadow-gray-200 bg-zinc-700 rounded-lg  shadow-lg  p-8 lg:p-12 w-full max-w-md">
-    <motion.div className="mb-10 text-red-700 text-2xl font-bold " >Registrarse</motion.div> {/* Letrero "Registrarse" */}
+<div className="bg-zinc-950 lg:p-20 w-full lg:w-2/3 flex justify-center max-h-screen">
+  <div className="shadow-gray-200 bg-zinc-700 rounded-lg  shadow-lg  p-8 lg:p-10 w-full max-w-md">
+    <motion.div className="mb-8 text-red-700 text-2xl font-bold " >Registrarse</motion.div> {/* Letrero "Registrarse" */}
     
     <div className="h-1 w-full flex mb-8 lg:mb-12">
       <div className="w-1/2 bg-red-700"></div>
@@ -172,6 +205,24 @@ export default function App() {
             autoComplete="nombre"
             required
             value={formData.nombre}
+            onChange={handleChange}
+            className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-zinc-700"
+          />
+        </div>
+      </div>
+      <div className="w-full border border-gray-400 p-1 flex items-center border-2"> 
+        <label htmlFor="text" className="px-7 text-sm font-medium leading-6 text-white flex items-center">Cédula</label>
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <div className="ml-2">
+          <motion.input 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}            
+            type="text" 
+            id="cedula"
+            name="cedula"
+            autoComplete="cedula"
+            required
+            value={formData.cedula}
             onChange={handleChange}
             className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-zinc-700"
           />
