@@ -15,7 +15,7 @@ export default function App() {
     direccion: ''
   });
     
-  console.log(import.meta.env.VITE_FORM_URL)
+  console.log(import.meta.env.VITE_TOKEN)
   const [showFirstDiv, setShowFirstDiv] = useState(true);
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
