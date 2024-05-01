@@ -15,7 +15,6 @@ export default function App() {
     direccion: ''
   });
     
-  console.log(import.meta.env.VITE_TOKEN)
   const [showFirstDiv, setShowFirstDiv] = useState(true);
   const [showSecondDiv, setShowSecondDiv] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +35,6 @@ export default function App() {
     };
     try {
     axios.post(import.meta.env.VITE_FORM_URL, formData, config)
-    // axios.post('http://localhost:3002/form/', formData,config)
     .then(() => {
       setShowFirstDiv(false);
       setShowSecondDiv(true);
