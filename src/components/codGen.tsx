@@ -13,7 +13,7 @@ const codGen = () => {
           src={Mtd5}
           alt="Imagen Principal"
         />
-        <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-15 text-xl sm:text-6xl text-center z-10 text-shadow font-bold"
+        <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-15 text-lg sm:text-6xl text-center z-10 text-shadow font-bold"
         style={{color: '#E67E22'}}>TU CÓDIGO ES: MONITHORHE</span>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
           <a href={import.meta.env.VITE_REDIRECT_URL} rel="noopener noreferrer" className="inline-block">
