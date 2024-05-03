@@ -34,8 +34,8 @@ export default function App() {
       }
     };
     try {
-      // axios.post(import.meta.env.VITE_FORM_URL, formData, config)
-      axios.post('http://localhost:3002/form/', formData, config)
+      // axios.post('http://localhost:3002/form/', formData, config) //local
+      axios.post(import.meta.env.VITE_FORM_URL, formData, config)
       .then(() => {
       setShowFirstDiv(false);
       setShowSecondDiv(true);
