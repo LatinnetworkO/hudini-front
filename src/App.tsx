@@ -9,7 +9,7 @@ import CodeGen from './components/codGen.tsx'
 export default function App() {
   const [formData, setFormData] = useState({
     nombre: '',
-    cedula: '',
+    numIdent: '',
     email: '',
     telefono: '',
     direccion: ''
@@ -34,8 +34,9 @@ export default function App() {
       }
     };
     try {
-    axios.post(import.meta.env.VITE_FORM_URL, formData, config)
-    .then(() => {
+      // axios.post(import.meta.env.VITE_FORM_URL, formData, config)
+      axios.post('http://localhost:3002/form/', formData, config)
+      .then(() => {
       setShowFirstDiv(false);
       setShowSecondDiv(true);
     })
@@ -69,7 +70,7 @@ export default function App() {
     <form className="space-y-5" action="#" method="POST" onSubmit={handleSubmit}>
       <div className="w-full border border-gray-400 p-1 px-4 flex items-center border-2">
         <label htmlFor="text" className="text-sm font-medium leading-6 text-white flex items-center">Nombre</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
         <div className="ml-2">
           <motion.input 
             whileHover={{ scale: 1.1 }}
@@ -81,6 +82,12 @@ export default function App() {
             required
             value={formData.nombre}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full border-0 py-1.4 text-white shadow-sm ring-int placeholder:text-gray-400   sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
@@ -88,19 +95,25 @@ export default function App() {
       
       {/* //cambio cedula  */}
       <div className="w-full border border-gray-400 p-1 px-4 flex items-center border-2">
-        <label htmlFor="text" className="text-sm font-medium leading-6 text-white flex items-center">Cédula</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <label htmlFor="text" className="text-sm font-medium leading-6 text-white flex items-center">ID</label>
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-12" />
         <div className="ml-2">
           <motion.input 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}            
             type="text" 
-            id="cedula"
-            name="cedula"
-            autoComplete="cedula"
+            id="numIdent"
+            name="numIdent"
+            autoComplete="numIdent"
             required
-            value={formData.cedula}
+            value={formData.numIdent}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full border-0 py-1.4 text-white shadow-sm ring-int placeholder:text-gray-400   sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
@@ -108,7 +121,7 @@ export default function App() {
 
       <div className="w-full border border-gray-400 p-1 flex items-center border-2 px-5 ">
         <label htmlFor="email" className="text-sm font-medium leading-6 text-white flex items-center">Email</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-9" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
         <div className="ml-2">
           <motion.input
             whileHover={{ scale: 1.1 }}
@@ -120,14 +133,20 @@ export default function App() {
             required
             value={formData.email}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full  border-0 py-1.4 text-white shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
       </div>
 
       <div className="w-full border border-gray-400 p-1 flex items-center border-2">
-        <label htmlFor="telefono" className="text-sm font-medium leading-6 text-white px-3 flex items-center">Telefono</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
+        <label htmlFor="telefono" className="text-sm font-medium leading-6 text-white px-2 flex items-center">Telefono</label>
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-0" />
         <div className="ml-2">
           <motion.input
             whileHover={{ scale: 1.1 }}
@@ -138,6 +157,12 @@ export default function App() {
             required
             value={formData.telefono}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full  border-0 py-1.4 text-white shadow-sm placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
@@ -156,6 +181,12 @@ export default function App() {
             required
             value={formData.direccion}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full border-0 py-1.4 text-gray-900 shadow-sm placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
@@ -194,7 +225,7 @@ export default function App() {
     <form className="space-y-5" action="#" method="POST" onSubmit={handleSubmit}>
       <div className="w-full border border-gray-400 p-1 flex items-center border-2"> 
         <label htmlFor="text" className="px-7 text-sm font-medium leading-6 text-white flex items-center">Nombre</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-3" />
         <div className="ml-2">
           <motion.input 
             whileHover={{ scale: 1.1 }}
@@ -206,31 +237,43 @@ export default function App() {
             required
             value={formData.nombre}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-zinc-700"
           />
         </div>
       </div>
       <div className="w-full border border-gray-400 p-1 flex items-center border-2"> 
-        <label htmlFor="text" className="px-7 text-sm font-medium leading-6 text-white flex items-center">Cédula</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-6" />
+        <label htmlFor="text" className="px-7 text-sm font-medium leading-6 text-white flex items-center">ID</label>
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-12" />
         <div className="ml-2">
           <motion.input 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}            
             type="text" 
-            id="cedula"
-            name="cedula"
-            autoComplete="cedula"
+            id="numIdent"
+            name="numIdent"
+            autoComplete="numIdent"
             required
-            value={formData.cedula}
+            value={formData.numIdent}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-zinc-700"
-          />
+            />
         </div>
       </div>
       <div className="w-full border border-gray-400 p-1 flex items-center border-2"> {/* Cambio en la clase de estilo aquí */}
         <label htmlFor="email" className="text-sm font-medium leading-6 px-6 text-white flex items-center">Email</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-11" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-9" />
         <div className="ml-2">
           <motion.input
             whileHover={{ scale: 1.1 }}
@@ -242,14 +285,21 @@ export default function App() {
             required
             value={formData.email}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'white', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
             className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400 sm:text-sm sm:leading-6 bg-zinc-700"
+            
           />
         </div>
       </div>
 
       <div className="w-full border border-gray-400 p-1 flex items-center border-2 "> {/* Cambio en la clase de estilo aquí */}
         <label htmlFor="telefono" className="px-7 text-sm font-medium leading-6 text-white flex items-center">Telefono</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-4" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
         <div className="ml-2">
           <motion.input
           whileHover={{ scale: 1.1 }}
@@ -260,18 +310,19 @@ export default function App() {
             required
             value={formData.telefono}
             onChange={handleChange}
-style={{ 
-  appearance: 'textfield', /* Solución alternativa para algunos navegadores */
-  WebkitAppearance: 'none', /* Oculta las flechas en Chrome y Safari */
-  MozAppearance: 'textfield', /* Solución para Firefox */
-  margin: 0, /* Asegura que las flechas no dejen espacio */
-}}              className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
-          />
+            className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'whithe', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: 'white'
+            }}
+         />
         </div>
       </div>
       <div className="w-full border border-gray-400 p-1 flex items-center border-2"> {/* Cambio en la clase de estilo aquí */}
         <label htmlFor="direccion" className="text-sm px-7 font-medium leading-6 text-white flex items-center">Dirección</label>
-        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-2" />
+        <img src={proximo} alt="Icono de correo electrónico" className="h-5 w-5 ml-1" />
         <div className="ml-2">
           <motion.input
                         whileHover={{ scale: 1.1 }}
@@ -282,8 +333,15 @@ style={{
             required
             value={formData.direccion}
             onChange={handleChange}
+            style={{
+              WebkitBoxShadow: '0 0 0 1000px #3b4249 inset',// Cambiar a zinc
+              color:'black', // Estableciendo el color del texto en blanco
+                WebkitTextFillColor: 'white',
+                caretColor: '0 0 0 1000px #3b4249 inset'
+                
+            }}
             className="w-full  border-0 py-1.4 px-7 text-white shadow-sm placeholder:text-gray-400  sm:text-sm sm:leading-6 bg-zinc-700"
-          />
+/>
         </div>
       </div>
 
