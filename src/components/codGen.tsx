@@ -14,7 +14,7 @@ const codGen = () => {
           alt="Imagen Principal"
         />
         <span className="absolute top-0 left-0 right-0 bg-transparent text-amber-400 px-2 py-12 sm:py-15 text-lg sm:text-6xl text-center z-10 text-shadow font-bold"
-        style={{color: '#E67E22', fontSize: '2rem'}}>TU CÓDIGO ES: MONITHORHE</span>
+        style={{color: '#E67E22', fontSize: '2rem'}}>TU CÓDIGO ES: 2407PREMIO_001</span>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-16">
           <a href={import.meta.env.VITE_REDIRECT_URL} rel="noopener noreferrer" className="inline-block">
             <motion.button 
